@@ -1,0 +1,81 @@
+{% load static %}
+<!-- Start of Async Drift Code -->
+<script>
+"use strict";
+
+!function() {
+  var t = window.driftt = window.drift = window.driftt || [];
+  if (!t.init) {
+    if (t.invoked) return void (window.console && console.error && console.error("Drift snippet included twice."));
+    t.invoked = !0, t.methods = [ "identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on" ], 
+    t.factory = function(e) {
+      return function() {
+        var n = Array.prototype.slice.call(arguments);
+        return n.unshift(e), t.push(n), t;
+      };
+    }, t.methods.forEach(function(e) {
+      t[e] = t.factory(e);
+    }), t.load = function(t) {
+      var e = 3e5, n = Math.ceil(new Date() / e) * e, o = document.createElement("script");
+      o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + n + "/" + t + ".js";
+      var i = document.getElementsByTagName("script")[0];
+      i.parentNode.insertBefore(o, i);
+    };
+  }
+}();
+drift.SNIPPET_VERSION = '0.3.1';
+drift.load('6nre6ceci5ra');
+</script>
+<!-- End of Async Drift Code -->
+          <header class="header navbar-fixed-top">
+              <nav class="navbar" role="navigation">
+                <div class="container font">
+                      <div class="menu-container js_nav-item">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="toggle-icon"></span>
+                        </button>
+
+                          <div class="logo">
+                            <a class="logo-wrap" href="#body">
+                                <img class="logo-img logo-img-main" src="{% static 'img/academialogo.png' %}" alt="AcademiaBuddy">
+                                <img class="logo-img logo-img-active" src="{% static 'img/academialogo.png' %}" alt="AcademiaBuddy">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="collapse navbar-collapse nav-collapse">
+<div class="menu-container font">
+                            <ul class="nav navbar-nav navbar-nav-right">
+                                <li class="js_nav-item nav-item font"><a class="nav-item-child nav-item-hover font" href="/" style="color: #000">Home <i class="fa fa-home"></i></a></li>
+                                
+                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover font" href="{% url 'services:list' %}" style="color: #000">Services</a></li>
+                                <li class="js_nav-item nav-item font"><a class="nav-item-child font nav-item-hover font" href="{% url 'neworder:create' %}" style="color: #000"><span class="w3-tag w3-small  w3-red" style="transform:rotate(-9deg)">
+  Order Now 
+  </span></a></li><li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover font" href="{% url 'aboutus' %}" style="color: #000">About Us</a></li>
+                
+                <li class="js_nav-item nav-item font"><a class="nav-item-child nav-item-hover font" href="{% url 'samples:list' %}" style="color: #000">Samples <i class="fa fa-book"></i></a></li>
+                <li class="js_nav-item nav-item font"><a class="nav-item-child nav-item-hover font" href="{% url 'careers:create' %}" style="color: #000">Careers</a></li>
+                
+                
+                                
+                                <li class="js_nav-item nav-item font"><a class="nav-item-child nav-item-hover font " href="{% url 'contact:form' %}" style="color: #000">Contact Us</a></li>
+                                {% if user.is_authenticated %}<li style="padding-top: 15px"><a href="{% url 'accounts:logout' %}" ><button class="btn btn-default  "  type="button"  style="background-color: #46bbc9">Sign out
+     </button></a></li>{% else %}<li style="padding-top: 30px">    
+                                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" style="background-color: #46bbc9">Your Account <i class="fa fa-briefcase"></i>
+     <span class="caret" style="color: red"></span></button>
+      <ul class="dropdown-menu">
+      
+         <li ><a href="{% url 'accounts:login' %}" class="font container js_nav-item nav-item " style="color: #17bed2    ;font-size: 20px">Sign in <i class="fa fa-user"></i></a></li>
+      <li><a href="{% url 'accounts:signup' %}" class="font container js_nav-item nav-item "  style="color: #17bed2;font-size: 20px">Sign up <i class="fa fa-bolt"></i></a></li>{% endif %}
+      
+               </ul></li>
+                               
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav></header>         
+                        
+                            
+                  

@@ -1,0 +1,145 @@
+{% extends "base.html" %}
+{% block title %}AcademiaBuddy | Our Services{% endblock %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+            
+           <div style="padding-top: 30px" >
+            <div class="section-seperator">
+                <div class="content-md container">
+                    <div class="row margin-b-40">
+                        <div class="col-sm-6">
+                            <h2 class="container font text-center font" style="font-size: 40px"> Our Services</h2>
+                            <p class="container font text-center" style="font-size: 30px">We here at<span style="color: red; font-size: 35px"> A</span><span style="color: #2b7bbf;font-size: 30px">cademia</span><span style="color: red ; font-size: 35px">B</span><span style="color: #2b7bbf;font-size: 30px">uddy,</span>  contantly update ourself to provide better services to out cutomers. We are very bad at breaking trust. Trust us.</p>
+                        </div>
+  </div><div class="w3-container w3-center">
+  
+  <a href="{% url 'neworder:create' %}"><span class="w3-tag w3-jumbo w3-red font">S</span></a>
+  <a href="{% url 'neworder:create' %}"><span class="w3-tag w3-jumbo">A</span></a>
+  <a href="{% url 'neworder:create' %}"><span class="w3-tag w3-jumbo w3-yellow">L</span></a>
+  <a href="{% url 'neworder:create' %}"><span class="w3-tag w3-jumbo">E</span></a>
+  <a href="{% url 'neworder:create' %}"><p class="fontblack" style="color: #0a0f11;font-size: 20px;padding-top: 10px"><b>on Assignment, Medical and Dissertation Writing.</b></p></a>
+</div>
+<hr>
+
+
+
+
+<div class="w3-content" style="max-width:1100px">            
+<div class="w3-row " id="menu">
+    <div class="w3-col l6 w3-padding-large">
+      <h1 class="w3-center fontblack">Medical Writing</h1><br>
+      <a class="nav-item-child font nav-item-hover font" href="{% url 'neworder:create' %}" style="color: #000"><span class="w3-tag w3-xlarge w3-padding w3-red" style="transform:rotate(-10deg);">
+  Order Now
+  </span></a>
+      <p class="w3-large fontblack" style="padding-top: 12px">Medical writing is an interesting and challenging field that allows us to straddle between science and art. Users of information from medical writing need to access <b>accurate, factual, and objective information</b> in order to make informed medical decisions in various fields such as nursing, pharmacy, paediatry, dentistry, and surgery. Our medical writers put great emphasis on <b>style, format, clarity, completeness, context, publication practices, and medical guidelines in the generation of various medical writings.</b></p>
+      <p class="w3-large w3-text-grey w3-hide-medium fontblack"><b>At Academia Buddy, we ensure that we develop top-notch, accurate and up-to-date documents in medical writing.</b></p>  
+    </div>
+    
+    <div class="w3-col l6 w3-padding-large">
+      <img src="{% static 'img/Medicalwriting.jpg' %}" class="w3-round w3-image w3-opacity-min" alt="Menu" style="width:100%;height: 500px">
+    </div>
+  </div>
+<hr>
+
+           
+<div class="w3-row w3-row w3-padding-64 " id="menu">
+     <div class="w3-col l6 w3-padding-large">
+      <img src="{% static 'img/Assignmentwriting.jpg' %}" class="w3-round w3-image w3-opacity-min" alt="Menu" style="width:100%;height: 500px">
+    </div>
+    <div class="w3-col l6 w3-padding-large">
+      <h1 class="w3-center fontblack">Assignment Writing</h1><br>
+     <a class="nav-item-child font nav-item-hover font" href="{% url 'neworder:create' %}" style="color: #000"><span class="w3-tag w3-xlarge w3-padding w3-red" style="transform:rotate(-10deg)">
+  Order Now
+  </span></a>
+      <p class="w3-large fontblack" style="padding-top: 12px">Assignments are tasks allocated to students or people who belong to a particular setting. The process of <b>planning, analyzing, drafting outlines, finding information, writing, editing, proofreading and concluding assignments is cumbersome.</b>The company offers assignment writing help related to <b>research essays, literature reviews, critical reviews, case studies, development of laboratory reports, term papers, and project reports.</b></p>
+      <p class="w3-large w3-text-grey w3-hide-medium fontblack"><b>Academia Buddy understands that assignment writing has a clear goal and objectives that must be fulfilled. Our writers get well acquainted with a particular task at hand before handling it in a professional manner.</b></p>  
+    </div>
+   
+</div>      
+   <hr>
+
+<div class="w3-row " id="menu">
+    <div class="w3-col l6 w3-padding-large">
+      <h1 class="w3-center fontblack">Technical Writing   </h1><br>
+     <a class="nav-item-child font nav-item-hover font" href="{% url 'neworder:create' %}" style="color: #000"> <span class="w3-tag w3-xlarge w3-padding w3-red" style="transform:rotate(-10deg)">
+  Order Now
+  </span></a>
+      <p class="w3-large fontblack" style="padding-top: 12px">Our technical writing services are offered for different purposes and classes of clients that require documents targeted for educating, informing, and giving directions. By developing these writings for our <b> clients, our main aim</b>clients, our main aim is to impart readers with specific knowledge and skills about a particular product or service. Academia Buddy offers technical writing services to clients who order for <b>training manuals, product descriptions, operational guidelines, articles, brochures, and specific website content.</b> </p>
+      <p class="w3-large w3-text-grey w3-hide-medium fontblack"><b>Academia Buddy has a broad spectrum of technical writers with knowledge and skills in various fields such as economics, technology, arts, sciences, engineering, and medicine.  </b></p>  
+    </div>
+    
+    <div class="w3-col l6 w3-padding-large">
+      <img src="{% static 'img/Technicalwriting.jpg' %}" class="w3-round w3-image w3-opacity-min" alt="Menu" style="width:100%;height: 500px">
+    </div>
+  </div>
+<hr>
+
+<div class="w3-row w3-row w3-padding-64 " id="menu">
+     <div class="w3-col l6 w3-padding-large">
+      <img src="{% static 'img/4.jpg' %}" class="w3-round w3-image w3-opacity-min" alt="Menu" style="width:100%;height: 500px">
+    </div>
+    <div class="w3-col l6 w3-padding-large">
+      <h1 class="w3-center fontblack">Research Project Writing </h1><br>
+     <a class="nav-item-child font nav-item-hover font" href="{% url 'neworder:create' %}" style="color: #000"><span class="w3-tag w3-xlarge w3-padding w3-red" style="transform:rotate(-10deg)">
+  Order Now
+  </span> </a>
+      <p class="w3-large fontblack" style="padding-top: 12px">Research projects are developments undertaken to expand knowledge and skills on past findings or to discover new ways of doing things. Research project writing at Academia Buddy consists of proper topic selection, formation of <b>thesis, creation of research project outline, drafting of paper, revisions and submission of research findings.</b> As such, Academia Buddy puts in place a team of expert writers who are seasoned researchers to develop research project papers for clients across the globe with strict emphasis on <b>timeliness and cost-effectiveness</b></p>
+      <p class="w3-large w3-text-grey w3-hide-medium fontblack">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adip</p>  
+    </div>
+   
+</div>      
+   <hr>
+
+<div class="w3-row " id="menu">
+    <div class="w3-col l6 w3-padding-large">
+      <h1 class="w3-center fontblack">Dissertation Writing</h1><br>
+      <a class="nav-item-child font nav-item-hover font" href="{% url 'neworder:create' %}" style="color: #000"><span class="w3-tag w3-xlarge w3-padding w3-red" style="transform:rotate(-10deg)">
+  Order Now
+  </span></a>
+      <p class="w3-large fontblack" style="padding-top: 12px">At the end of an academic program such as undergraduate or master’s studies, students are required to conduct independent researches and document their findings. Dissertations are produced as original pieces of research work that students must submit as evidence in order to graduate. he general but standard format used to develop dissertations is presentation of a <b>research proposal, introduction, literature review, methodology, results, discussion, conclusion and recommendations. </b></p>
+      <p class="w3-large w3-text-grey w3-hide-medium fontblack"><b>Dissertations written by Academia Buddy are always written in third person which is in passive voice with exceptions in particular sections of the document.</b> </p>  
+    </div>
+    
+    <div class="w3-col l6 w3-padding-large">
+      <img src="{% static 'img/Dessertationwriting.jpg' %}" class="w3-round w3-image w3-opacity-min" alt="Menu" style="width:100%;height: 400px">
+    </div>
+  </div>
+<hr>
+
+  </div>
+
+
+
+<!-- <div class="container">
+            
+           <div style="padding-top: 30px" >
+            <div class="section-seperator">
+                <div class="content-md container">
+                    <div class="row margin-b-40">
+                        <div class="col-sm-6">
+                            <h2 class="container font text-center" style="font-size: 40px"> Our Services</h2>
+                            <p class="container font text-center" style="font-size: 30px">We here at AcademiaBuddy.com contantly update ourself to provide better services to out cutomers. We are very bad at breaking trust. Trust us.</p>
+                        </div>
+                    </div>
+                
+            <div class="row">
+                  
+                    {% for obj in object_list %}<div class="col-sm-4 sm-margin-b-50">
+                        <div class="margin-b-20">
+                           {% if obj.image %} <img class="img-responsive" src="{{ obj.image.url }}" alt="Latest Products Image">{% endif %}
+                        </div>
+                        <h4><a href="/services/{{ obj.slug }}/" class="font">{{ obj.Servicename }} </a> <br><span class="text-uppercase margin-l-20 font" >{{ obj.Description }}...</span></h4>
+                  
+                    </div>{% endfor %} 
+                        
+                    </div>
+             
+
+                    </div></div></div>
+     
+                    
+                </div>
+                <br> -->
+{% endblock %}

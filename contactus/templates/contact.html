@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block title %} Contact {{ block.super }}{% endblock %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block content %}
+<div id="band" class="container text-center font" style="padding-top: 150px" >
+  <h3 class=" container font"><span style="color: red; font-size: 40px">A</span><span style="color: blue;font-size: 30px">cademia</span><span style="color: red ; font-size: 40px">B</span><span style="color: blue;font-size: 30px">uddy.com</span></h3>
+  <p class="font"><em>We love our work. You will too.</em></p>
+  <p class="container font"  style="font-size: 19px;text-align: justify;"><span style="color: red; font-size: 19px"> A</span><span style="color: #2b7bbf;font-size: 19px  ">cademia</span><span style="color: red ; font-size: 19px">B</span><span style="color: #2b7bbf;font-size: 19px">uddy,</span> is a premier global online writing and design company. 
+    <br>The company boasts of expert writers and designers who have immense knowledge and skills in various fields.<br> The company understands that despite presence of several other online writing and design companies, all its existing and new clients are valued. <span style="color: red; font-size: 19px"> A</span><span style="color: #2b7bbf;font-size: 19px  ">cademia</span><span style="color: red ; font-size: 19px">B</span><span style="color: #2b7bbf;font-size: 19px">uddy,</span> is delighted to offer professional and a one-on-one online help and assistance to clients seeking various writing and design services. <b>Students, professionals, and researchers from various schools, colleges, and universities across the globe are invited to try our excellent online writing and design services. The company has a team of native writers and designers from the US, UK & Australia that help in preparing and delivering quality work. If you are not sure of where to get quality, timely, accurate, and affordable online writing and design services, come to <span style="color: red; font-size: 19px"> A</span><span style="color: #2b7bbf;font-size: 19px  ">cademia</span><span style="color: red ; font-size: 19px">B</span><span style="color: #2b7bbf;font-size: 19px">uddy,</span>.</b> If you are sure that <span style="color: red; font-size: 19px"> A</span><span style="color: #2b7bbf;font-size: 19px  ">cademia</span><span style="color: red ; font-size: 19px">B</span><span style="color: #2b7bbf;font-size: 19px">uddy,</span> is the best place to get quality, timely, accurate, and affordable online writing and design services, come again.   </p>
+  <br>
+ 
+<div id="tour" class="bg-1">
+  <div class="container">
+    <h3 class="text-center font" ><u>Our Offices</u></h3>
+    <p class="text-center font" style="font-size: 30px">Lets us take best out of everything.<br><br></p>
+    <ul class="list-group"> 
+      <li class="list-group-item font" style="font-size: 20px;color: blue">UK &nbsp &nbsp  &nbsp &nbsp &nbsp<span class="label label-success">Active</span></li>
+     
+      <li class="list-group-item font" style="font-size: 20px;color: blue"> AUS &nbsp &nbsp<span class="label label-success">Active</span></li> 
+    </ul>
+    
+
+<div id="contact" class="container" style="padding-top: 40px">
+  <h3 class="text-center font" style="color: black;font-size: 25px" >Contact</h3>
+  <p class="text-center" style="color: black;" ><em style="font-size: 22px">We'd like to hear from you.</em></p>
+  
+  <div class="row" style="padding-top: 50px;font-size: 22px">
+    <div class="col-md-4 font" style="color: black;font-size:20px">
+      <b>Give us your Feedback about <span style="color: red; font-size: 19px"> A</span><span style="color: #2b7bbf;font-size: 19px  ">cademia</span><span style="color: red ; font-size: 19px">B</span><span style="color: #2b7bbf;font-size: 19px">uddy,</span></p></b>
+      <p style="color: black"><span class="glyphicon glyphicon-map-marker font" ></span>London UK</p>
+      <p style="color: black"><span class="glyphicon glyphicon-phone font"></span>Phone: +44 5046565658</p>
+      <p class="font" style="color: black"><span class="glyphicon glyphicon-envelope font" ></span >Email: info@academiabuddy.com</p>
+    </div>
+    <form  method="POST" >{% csrf_token %}
+    <div class="col-md-8" >
+      <div class="row" >
+        <div class="col-sm-6 form-group" >
+          <input class="form-control font " type="text" name="name" maxlength="50" required id="id_name" placeholder="Name">
+        </div>
+        <div class="col-sm-6 form-group">
+          <input class="form-control font" type="email" name="email" maxlength="254" required id="id_email" placeholder="Email">
+        </div>
+      </div>
+      <input class="form-control font"  type="text" name="feedback" maxlength="1000" required id="id_feedback"  placeholder="Your Query "></input>
+      <br>
+      <div class="row">
+        <div class="col-md-12 form-group">
+          <button class="btn pull-right font" type="submit">Send</button>
+        </div>
+      </div>
+    </div></form>
+  </div></div></div></div></div>
+  <br><br><br><br><br><br>
+  <hr>
+{% endblock content %}
+
+

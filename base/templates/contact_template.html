@@ -1,0 +1,15 @@
+{% autoescape off %}
+Hi Divya
+A person from {{ country }} submitted the form on AcademiaBuddy
+Contact Name:
+{{ name }}
+
+Email:  {{ email }}
+
+
+Query Related to:  {{ Related_to }}
+
+
+Message:	{{ message|safe|striptags }}
+
+{% endautoescape %}

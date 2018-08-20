@@ -1,0 +1,756 @@
+{% extends 'base.html' %}
+{% block title %}AcademiaBuddy |     Welcome to AcademiaBuddy.com. One of the best Content Writing, Website Building, Graphic Designing Agency.{% endblock %}
+{% load static %}
+{% block content %}
+
+<script type="text/javascript">setTimeout(function() {
+    $('#myModal').modal();
+}, 3000);</script>
+<script type="text/javascript">
+
+var asyncScripts = [];
+
+var asyncFunctions = [];
+
+var loadedScripts = [];
+
+var scriptsToLoad = 0;
+
+function execOnReady(func){
+
+asyncFunctions.push(func);
+
+}
+
+</script>
+<script async>
+
+$(document).ready(function() {
+	
+	$("#get-quote-form").submit(function(e) {
+		e.preventDefault();
+		getquote();
+	});
+	
+    $('#drop-menu-1').bind('mouseenter', menushow);
+
+	$('#drop-menu-1').bind('mouseleave', menuhide);
+
+	
+
+	function menushow() {
+
+        $(this).find('#drop-menu').css('visibility', 'visible');
+
+    }
+
+	
+
+	function menuhide() {
+
+        $(this).find('#drop-menu').css("visibility", "hidden");
+
+    }
+	
+	
+	function getquote() {
+		var c = document.getElementById("pages").value;
+		var m = document.getElementById("deadline").value;
+		var k = document.getElementById("writing_type").value;
+		var b = document.getElementById("name").value;
+		var l = document.getElementById("email").value;
+		var j = document.getElementById("phone").value;
+		var e = document.getElementById("document_type").value;
+		var d = document.getElementById("academic_level").value;
+		if ($.trim(b) == "") {
+			alert("name is required");
+			return false
+		}
+		var a = l.indexOf("@");
+		var h = l.lastIndexOf(".");
+		if (a < 1 || a + 2 > h) {
+			alert("valid email is required");
+			return false
+		} else {
+			if ($.trim(j) == "") {
+				alert("phone is required");
+				return false
+			} else {
+				if (e == "") {
+					alert("document type is required");
+					return false
+				} else {
+					if (d == "") {
+						alert("academic level is required");
+						return false
+					} else {
+						if (c == "") {
+							alert("Word count is required");
+							return false
+						} else {
+							if (m == "") {
+								alert("Deadline is required");
+								return false
+							} else {
+								if (k == "") {
+									alert("Quality is required");
+									return false
+								} else {
+									if (k == "Standard") {
+										if (m == "4") {
+											var i = (parseFloat(c) * parseFloat(15.5)).toFixed(2)
+										} else {
+											if (m == "6") {
+												var i = (parseFloat(c) * parseFloat(14.5)).toFixed(2)
+											} else {
+												if (m == "10") {
+													var i = (parseFloat(c) * parseFloat(12.5)).toFixed(2)
+												}
+											}
+										}
+									} else {
+										if (k == "Premium") {
+											if (m == "4") {
+												var i = (parseFloat(c) * parseFloat(18.5)).toFixed(2)
+											} else {
+												if (m == "6") {
+													var i = (parseFloat(c) * parseFloat(15.5)).toFixed(2)
+												} else {
+													if (m == "10") {
+														var i = (parseFloat(c) * parseFloat(14.5)).toFixed(2)
+													}
+												}
+											}
+										} else {
+											if (k == "Platinum") {
+												if (m == "4") {
+													var i = (parseFloat(c) * parseFloat(21.5)).toFixed(2)
+												} else {
+													if (m == "6") {
+														var i = (parseFloat(c) * parseFloat(19.5)).toFixed(2)
+													} else {
+														if (m == "10") {
+															var i = (parseFloat(c) * parseFloat(16.5)).toFixed(2)
+														}
+													}
+												}
+											}
+										}
+									}
+									
+									var f = "\u00A3" + i;
+									$(".loading_image").show();
+									$("#get-quote").hide();
+									var g = "action=send_email&&name=" + b + "&&email=" + l + "&&phone=" + j + "&&document_type=" + e + "&&academic_level=" + d + "&&word_count=" + c + "&&deadline=" + m + "&&quality=" + k + "&&totalprice=" + f + "&&website_url=";
+									$.ajax({
+										url: "",
+										type: "POST",
+										data: g,
+										cache: false,
+										success: function(data) {
+											
+										}
+									});
+									$(".loading_image").hide();
+									$("#get-quote").show();
+									$("#price_text").html(f);
+									$("#get-quote-form")[0].reset();
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+});
+
+</script>
+<style>
+input[type=text], select {
+width: 350px  ;
+padding: 12px 20px;
+margin: 8px 0;
+display: inline-block;
+border: 1px solid #ccc;
+border-radius: 4px;
+box-sizing: border-box;
+}
+
+input[type=submit] {
+width: 200px;
+background-color: #4CAF50;
+color: white;
+padding: 14px 20px;
+margin: 8px 0;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+}
+
+input[type=submit]:hover {
+background-color: #45a049;
+}
+
+.head {
+border-radius: 5px;
+background-color: #f2f2f2;
+padding: 20px;
+}
+
+
+.spacer-30 { display: block; content: ''; clear: both; height: 30px; }
+.box { height: 220px; background-color: #fff; color: initial; margin-bottom: 30px; }
+.features [class*="col-"] .box img { max-height: 50px	; float: right; border-left: 4px solid #363f45; }
+.features [class*="col-"]:nth-child(2n) .box img { float: left; border-left: 0px; border-right: 4px solid #363f45; }
+.features [class*="col-"] .box div { padding: 20px; text-align: left; height: 220px; margin-right: 220px; }
+.features [class*="col-"]:nth-child(2n) .box div { margin-left: 220px; margin-right: 0px; }
+.features [class*="col-"] .box div * { margin-top: 0px; }	
+
+</style>
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+<div class="container">
+
+<ol class="carousel-indicators">
+<li data-target="#carousel-example-generic" data-slide-to="0" class="active" ></li>
+<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+</ol>
+</div>
+
+<div class="carousel-inner" role="listbox">
+
+<div class="item">
+
+<img class=" bgimg img-responsive" src="{% static 'img/academic.jpg' %}" alt="AcademiaBuddy" style="background-blend-mode: soft-light;" >
+<div class="home-wrapper">
+<div class="container">
+<div class="row">
+
+
+<div class="col-md-10 col-md-offset-1" style="padding-top: 100px">
+<div class="home-content">
+<h2 class="font text-center" style="color: black">Welcome to <span style="color: red; font-size: 40px">A</span><span style="color: #2b7bbf;font-size: 30px">cademia</span><span style="color: red ; font-size: 40px">B</span><span style="color: #2b7bbf;font-size: 30px">uddy.com</span><br>Global online service provider specialized in writing and design.</h2>
+<h2 class="font text-center" style="color: black">Services  </h2>
+<ul>
+<li class="text-center font list-inline" style="font-size: 10px;color: black"><b><a href="services/content-writing/" style="text-decoration: none;color: black;font-size: 15px"><button class="w3-button  w3-round-xxlarge" style="background-color: rgba(49, 214, 230, 0.43)">Medical Writing</button></a></b>
+</li>
+<br>
+<li class="text-center font list-inline" style="font-size: 10px;color: black"><b><a href="services/content-writing/" style="text-decoration: none;color: black;font-size: 15px"><button class="w3-button  w3-round-xxlarge" style="background-color: rgba(49, 214, 230, 0.43)">Assignment Writing</button></a></b></li><br>
+<li class="text-center font list-inline" style="font-size: 10px;color: black"><b><a href="/services/graphic-designing/" style="text-decoration: none;color: black;font-size: 15px"><button class="w3-button  w3-round-xxlarge" style="background-color: rgba(49, 214, 230, 0.43)">Technical Designing</button></b></a></li><br>
+<li class="text-center font list-inline" style="font-size: 10px;color: black"><b><a href="/services/architecture-design/" style="text-decoration: none;color: black;font-size: 15px"><button class="w3-button  w3-round-xxlarge" style="background-color: rgba(49, 214, 230, 0.43)">Dissertation Designs</button></a></b></li>
+
+</ul>
+
+<br><div class=" text-center">
+
+</div>
+</div>
+</div>
+<a class="left carousel-control" href="#carousel-example-generic"  data-slide-to="1" style="background-image:-webkit-linear-gradient(left,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%)">
+<span class="glyphicon glyphicon-chevron-left"></span>
+<span class="sr-only">Previous</span>
+</a>
+<a class="right carousel-control" href="#carousel-example-generic" data-slide-to="1" style="background-image:-webkit-linear-gradient(left,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%)">
+<span class="glyphicon glyphicon-chevron-right"></span>
+<span class="sr-only">Next</span>
+</a>
+</div></div></div>
+</div>
+
+<div class="item">
+<img class=" bgimg img-responsive" src="{% static 'img/assignment.jpg' %}" alt="Content Writing, Assignment Writing and Web Development"  style="background-color: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 1))">
+
+
+
+<div class="home-wrapper">
+<div class="container">
+<div class="row">
+
+
+<div class="col-md-10 col-md-offset-1" style="padding-top: 200px">
+<div class="home-content">
+<h2 class="font text-center" style="color: #2d1818"> <span style="color: red; font-size: 50px">A</span><span style="color: #2b7bbf;font-size: 40px">cademic</span> Writing Agency</h2>
+<p class="font text-center" style="color: #0f2229;font-size: 30px">We charge you less as our charges are less. Let us write for you.</p>
+<br><br>
+<div class="text-center">
+<a href="{% url 'contact:form' %}"><button class="" style="font-size: 25px;padding: 10px 10px 10px 10px; background-color: rgba(241, 7, 7, 0.63);color: white">Contact us! </button></a><br><br>
+<h3 class=" font" >Our Ratings</h3>
+
+<span class="fa fa-star checked" style="color: yellow;font-size: 30px"></span>
+<span class="fa fa-star checked" style="color: yellow;font-size: 30px"></span>
+<span class="fa fa-star checked" style="color: yellow;font-size: 30px"></span>
+<span class="fa fa-star checked" style="color: yellow;font-size: 30px"></span>
+<span class="fa fa-star" style="font-size: 30px"></span>
+</div>
+</div>
+</div>
+
+<a class="left carousel-control" href="#carousel-example-generic" data-slide-to="0" style="background-image:-webkit-linear-gradient(left,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%)">
+<span class="glyphicon glyphicon-chevron-left"></span>
+<span class="sr-only">Previous</span>
+</a>
+<a class="right carousel-control" href="#carousel-example-generic" data-slide-to="0" style="background-image:-webkit-linear-gradient(left,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%)">
+<span class="glyphicon glyphicon-chevron-right"></span>
+<span class="sr-only">Next</span>
+</a>
+
+</div>
+
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+</div>
+<div class="modal fade" id="myModal" role="dialog" >
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content" style="background-color: #2bbfaa">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" style=" color: white">&times;</button>
+ 
+  
+  
+            
+            <p id="frm" class="lead" style="color: #722727;text-align: center;"><u> FREE QUOTE</u> <a class="nav-item-child font nav-item-hover font" href="{% url 'neworder:create' %}" style="color: #000"><span class="w3-tag w3-large w3-padding w3-red" style="transform:rotate(-10deg)">
+  Order Now
+  </span></a>
+                    </p>
+                   <p class="lead" style="text-align: center;color: #722727">Instant Price Calculator </p> 
+              <div class="form-group" id="pwd-container">
+   
+                    
+                    
+                    <form   action="" method="" id="get-quote-form">{% csrf_token %}
+                        <ul class="text-field">
+                            <li><input class="dropdown-header "  type="name" id="name" name="name" placeholder="Name.." required></li><br>
+                            <li><input class="dropdown-header "  type="email" id="email" name="email" placeholder="Email.." required></li>  <br>             
+                            <li><input class="dropdown-header " type="tel" name="phone" id="phone" maxlength="40" placeholder="Phone..." required></li>
+                        </ul><br>
+                        <div id="main-selct">
+                        <ul class="select">
+                            <li>
+                                 <select class="dropdown-header " name="document_type" size="1" id="document_type" required>
+                                 	<option value="">Document Type</option>
+                                     <option>Essay</option>
+                                     <option>Assignment</option>
+                                     <option>Term Paper</option>
+                                     <option>Research Paper</option>
+                                     <option>Coursework</option>
+                                     <option>Book Report</option>
+                                     <option>Book Review</option>
+                                     <option>Movie Review</option>
+                                     <option>Research Summary</option>
+                                     <option>Dissertation</option>
+                                     <option>Thesis</option>
+                                     <option>Thesis/Dissertation Proposal</option>
+                                     <option>Research Proposal</option>
+                                     <option>Dissertation Chapter - Abstract</option>
+                                     <option>Dissertation Chapter - Introduction Chapter</option>
+                                     <option>Dissertation Chapter - Literature Review</option>
+                                     <option>Dissertation Chapter - Methodology</option>
+                                     <option>Dissertation Chapter - Results</option>
+                                     <option>Dissertation Chapter - Discussion</option>
+                                     <option>Dissertation Services - Editing</option>
+                                     <option>Dissertation Services - Proofreading</option>
+                                     <option>Formatting</option>
+                                     <option>Admission Services - Admission Essay</option>
+                                     <option>Admission Services - Scholarship Essay</option>
+                                     <option>Admission Services - Personal Statement</option>
+                                     <option>Admission Services - Editing</option>
+                                     <option>Editing</option>
+                                     <option>Proofreading</option>
+                                     <option>Case Study</option>
+                                     <option>Lab Report</option>
+                                     <option>Speech/Presentation</option>
+                                     <option>Math/Physics/Economics/Statistics Problems</option>
+                                     <option>Article</option>
+                                     <option>Article Critique</option>
+                                     <option>Annotated Bibliography</option>
+                                     <option>Reaction Paper</option>
+                                     <option>Multiple Choice Questions (Non-time-framed)</option>
+                                     <option>Multiple Choice Questions (Time-framed)</option>
+                                     <option>Statistics Project</option>
+                                     <option>PowerPoint Presentation</option>
+                                     <option>Programming</option>
+                                     <option>Mind/Concept mapping</option>
+                                     <option>Multimedia Project</option>
+                                     <option>Online assignment</option>
+                                     <option>Simulation report</option>
+                                     <option>Others</option>
+                                 </select>
+                            </li><br>
+                                <li>
+                                    <select class="dropdown-header " id="academic_level" name="academic_level" size="1" required>
+                                        <option value="">Academic Level</option>
+                                        <option value="High School">High School</option>
+                                        <option value="Undergraduate">Undergraduate</option>
+                                        <option value="Master">Master</option><option value="PhD">PhD</option>
+                                    </select>
+                                </li><br>
+                                <li>
+                                    <select class="dropdown-header " name="pages" id="pages" required>
+                                        <option selected="selected" value="">Word Count</option>
+                                        <option value="1">250 words/ 1 pages</option>
+                                        <option value="2">500 words/ 2 pages</option>
+                                        <option value="3">750 words/ 3 pages</option>
+                                        <option value="4">1000 words/ 4 pages</option>
+                                        <option value="5">1250 Words/ 5 pages</option>
+                                        <option value="6">1500 Words/ 6 pages</option>
+                                        <option value="7">1750 Words/ 7 pages</option>
+                                        <option value="8">2000 Words/ 8 pages</option>
+                                        <option value="9">2250 Words/ 9 pages</option>
+                                        <option value="10">2500 Words/ 10 pages</option>
+                                        <option value="11">2750 Words/ 11 pages</option>
+                                        <option value="12">3000 Words/ 12 pages</option>
+                                        <option value="13">3250 Words/ 13 pages</option>
+                                        <option value="14">3500 Words/ 14 pages</option>
+                                        <option value="15">3750 Words/ 15 pages</option>
+                                        <option value="16">4000 Words/ 16 pages</option>
+                                        <option value="17">4250 Words/ 17 pages</option>
+                                        <option value="18">4500 Words/ 18 pages</option>
+                                        <option value="19">4750 Words/ 19 pages</option>
+                                        <option value="20">5000 Words/ 20 pages</option>
+                                        <option value="21">5250 Words/ 21 pages</option>
+                                        <option value="22">5500 Words/ 22 pages</option>
+                                        <option value="23">5750 Words/ 23 pages</option>
+                                        <option value="24">6000 Words/ 24 pages</option>
+                                        <option value="25">6250 Words/ 25 pages</option>
+                                        <option value="26">6500 Words/ 26 pages</option>
+                                        <option value="27">6750 Words/ 27 pages</option>
+                                        <option value="28">7000 Words/ 28 pages</option>
+                                        <option value="29">7250 Words/ 29 pages</option>
+                                        <option value="30">7500 Words/ 30 pages</option>
+                                        <option value="31">7750 Words/ 31 pages</option>
+                                        <option value="32">8000 Words/ 32 pages</option>
+                                        <option value="33">8250 Words/ 33 pages</option>
+                                        <option value="34">8500 Words/ 34 pages</option>
+                                        <option value="35">8750 Words/ 35 pages</option>
+                                        <option value="36">9000 Words/ 36 pages</option>
+                                        <option value="37">9250 Words/ 37 pages</option>
+                                        <option value="38">9500 Words/ 38 pages</option>
+                                        <option value="39">9750 Words/ 39 pages</option>
+                                        <option value="40">10000 Words/ 40 pages</option>
+                                        <option value="42">10500 Words/ 42 pages</option>
+                                        <option value="44">11000 Words/ 44 pages</option>
+                                        <option value="46">11500 Words/ 46 pages</option>
+                                        <option value="48">12000 Words/ 48 pages</option>
+                                        <option value="50">12500 Words/ 50 pages</option>
+                                        <option value="52">13000 Words/ 52 pages</option>
+                                        <option value="54">13500 Words/ 54 pages</option>
+                                        <option value="56">14000 Words/ 56 pages</option>
+                                        <option value="58">14500 Words/ 58 pages</option>
+                                        <option value="60">15000 Words/ 60 pages</option>
+                                        <option value="62">15500 Words/ 62 pages</option>
+                                        <option value="64">16000 Words/ 64 pages</option>
+                                        <option value="66">16500 Words/ 66 pages</option>
+                                        <option value="68">17000 Words/ 68 pages</option>
+                                        <option value="70">17500 Words/ 70 pages</option>
+                                        <option value="72">18000 Words/ 72 pages</option>
+                                        <option value="74">18500 Words/ 74 pages</option>
+                                        <option value="76">19000 Words/ 76 pages</option>
+                                        <option value="78">19500 Words/ 78 pages</option>
+                                        <option value="80">20000 Words/ 80 pages</option>
+                                        <option value="82">20500 Words/ 82 pages</option>
+                                        <option value="84">21000 Words/ 84 pages</option>
+                                        <option value="86">21500 Words/ 86 pages</option>
+                                        <option value="88">22000 Words/ 88 pages</option>
+                                        <option value="90">22500 Words/ 90 pages</option>
+                                        <option value="92">23000 Words/ 92 pages</option>
+                                        <option value="94">23500 Words/ 94 pages</option>
+                                        <option value="96">24000 Words/ 96 pages</option>
+                                        <option value="98">24500 Words/ 98 pages</option>
+                                        <option value="100">25000 Words/ 100 pages</option>
+                                        <option value="120">30000 Words/ 120 pages</option>
+                                        <option value="140">35000 Words/ 140 pages</option>
+                                        <option value="160">40000 Words/ 160 pages</option>
+                                        <option value="180">45000 Words/ 180 pages</option>
+                                        <option value="200">50000 Words/ 200 pages</option>
+                                	</select>
+                                </li><br>
+                                <li>
+                                	<select class="dropdown-header " id="deadline" required>
+                                        <option value="">Deadline</option>                                                
+                                        <option value="10">10 Days &amp; more</option>
+                                        <option value="6">6 Days</option>
+                                        <option value="4">4 Days</option>
+                                    </select>
+                                </li><br>
+                                <li>
+                                    <select class="dropdown-header " id="writing_type" required>
+                                        <option value="">Quality</option>
+                                        <option value="Standard">Silver</option>
+                                        <option value="Premium">Gold</option>
+                                        <option value="Platinum">Platinum (1st Class)</option>
+                                    </select>
+                                </li><br>
+                                
+                                <li style="text-align:center; list-style: none; color:#E7E514;  letter-spacing:1px; " id="price_text"></li>
+                        </ul>
+                        </div>
+                        
+                      
+                        		<p class=" button home" style="text-align: center;"> 
+                                    <input type="submit" id="get-quote" value="Get Quote">
+                                    <img class="loading_image" height="80" width="80" style="display:none; height:40px; width:40px;" src="/images/loading1.gif" />
+								</p>
+                     
+                    </form>
+                </div>
+        </div>
+        
+        </div>
+  </div><div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div></div></div></div></div></div>
+
+
+<!-- <h2 class="text-center font " id="get" style="padding-top: 50px"> <button type="button" class="btn btn-success font" style="font-size: 30px;background-color: #46bbc9"><a href="{% url 'neworder:create' %}" style="color:white">Discount</a> <span class="badge font" style="font-size: 30px; color: #46bbc9">50%</span></a></button> till April 31st</h2><br><h4 class="text-center font">*On Content  & Assignment writing</h4> -->
+
+
+
+
+<div class="content-lg container" >
+<div class="row" style="background-color: #fff">
+<div class="col-md-5 col-sm-5 md-margin-b-60">
+<div class="margin-t-50 margin-b-30">
+<h2 class="font">Why us?</h2>
+<p class="font" style="font-size: 18px">At <span style="color: red; font-size: 20px"> A</span><span style="color: #2b7bbf;font-size: 20px">cademia</span><span style="color: red ; font-size: 20px">B</span><span style="color: #2b7bbf;font-size: 20px">uddy,</span> we value each and every customer. Our service offerings are fully customizable based on client and institutional needs. We don’t have hidden charges neither do we overcharge our clients. Our experts are available throughout the day and year. Occasioned by growing customer bases, our quality services now cover over 100 subjects. Contact us today and join our 2000+ clients in seeking managed content writing and design services. </p>
+</div>
+<a href="{% url 'contact:form' %}" class="btn-theme btn-theme-sm btn-white-bg text-uppercase">More...</a>
+</div>
+<div class="col-md-5 col-sm-7 col-md-offset-2">
+<!-- Accordion -->
+<div class="accordion" style="padding-top: 50px">
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+<div class="panel panel-default">
+<div class="panel-heading" role="tab" id="headingOne">
+<h4 class="panel-title">
+<a class="panel-title-child font" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+24*7 Assistance
+</a>
+</h4>
+</div>
+<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+<div class="panel-body font" style="color: white">
+We understand that sometimes online homework help might be required by students at the oddest of times… and usually just hours before a paper is due. This is why our customer support team is available to answer all of your questions, provide quotes and take your orders any time of the day. 
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading" role="tab" id="headingTwo">
+<h4 class="panel-title">
+<a class="collapsed panel-title-child font" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+High quality assignment
+</a>
+</h4>
+</div>
+<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+<div class="panel-body font" style="color: white">
+Our professional writers are also available to work effectively and efficiently to meet the tightest deadlines. With even the smallest of windows, we will work hard to get you the high-quality work you need to succeed in class.
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading" role="tab" id="headingThree">
+<h4 class="panel-title">
+<a class="collapsed panel-title-child font" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+Services in more than 100 subjects
+</a>
+</h4>
+</div>
+<div id="collapseThree" class="panel-collapse collapse font" role="tabpanel" aria-labelledby="headingThree">
+<div class="panel-body">
+We have experts  in
+
+— Math assignments
+— Biology assignments
+— Chemistry assignments
+— Economic assignments
+— English assignments
+— History assignments
+— Geography assignments
+— Law assignments
+— Linguistic assignments
+— Nursing assignments
+— Physics assignments and more to come
+</div>
+</div>
+</div>   
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+<div>
+<div class=" container">
+<div class="row margin-b-40">
+<div class="col-sm-6">
+<h2 class=" container font">What We Do?</h2>
+<p class=" container font" style="font-size: 22px"> We care for every student&#39;s future and thus hire only experienced professors, skilled writers &amp; academic research paper experts to provide best assignment help to students who are studying in schools, colleges &amp; universities. Our team of native writers in the UK, US &amp; Australia prepares ultimate qua</p>
+
+	<p class=" container font"><i class="fa fa-minus"></i><b>  Ranging from academic writing, website content writing, medical content writing, blog content writing, assignment writing to website design and development, we promise that our products and services will be plagiarism free, of world class quality, original, detailed, SEO optimized, professional, and current.</b></p>
+	<p class=" container font"><i class="fa fa-minus"></i><b>We are a trustworthy and reliable partner when it comes to content creation and development thus enabling you move ahead with your pursuits without much hassle. </b></p>
+	<p class=" container font"><i class="fa fa-minus"></i><b>Our professional content writers and designers acknowledge the fact that clients demand high value content which is industry-competitive and relevant.</b> </p>
+	<p class=" container font"><i class="fa fa-minus"></i><b>The company has a team of native writers and designers from the US, UK & Australia that help in preparing and delivering quality work. If you are not sure of where to get quality, timely, accurate, and affordable online writing and design services, come to Academia Buddy.</b> </p>
+
+</div>
+</div>
+
+
+
+
+</div></div>
+
+<hr>
+<!-- About Section -->
+<div class="w3-container" style="padding:40px 16px" id="about">
+  <h2 class=" font w3-center" style="font-size: 40px">How <span style="color: red; font-size: 50px">A</span><span style="color: #2b7bbf;font-size: 40px">cademia</span><span style="color: red ; font-size: 50px">B</span><span style="color: #2b7bbf;font-size: 40px">uddy.com</span>  works</h2>
+  <h2 class="w3-center  font" style="font-size: 30px;color: #98c7d4" >Key features of our company</h2>>
+  <div class="w3-row-padding w3-center" style="margin-top:30px">
+    <div class="w3-third">
+      <i class="fa fa-file-text-o w3-margin-bottom w3-jumbo w3-center" style="color: #09988d"></i>
+      <p class="w3-large font"><b>Submit Your Assignment</b></p>
+      <p class="font contatiner"><b>Simply visit iTaskassignmenthelp.com and fill up the assignment submission form. Mention the assignment requirements and upload the files. You can immediately chat with 24 x 7 assignment expert and get the best price. </b></p>
+    </div>
+    <div class="w3-third ">
+      <i class="fa fa-credit-card w3-margin-bottom w3-jumbo" style="color: #055a15"></i>
+      <p class="w3-large font" ><b>Pay For Assignment</b></p>
+      <p class="font contatiner font"><b>Once you receive best price for your assignment, process the payment through- paypal,credit card, debit card or online banking.</b></p>
+    </div>
+    <div class="w3-third">
+      <i class="fa fa-envelope-o w3-margin-bottom w3-jumbo" style="color: #ff26b0"></i>
+      <p class="w3-large font"><b>Get Assignment Solution</b></p>
+      <p class="font contatiner font"><b>Your high quality and well referenced assignment will be delivered straight in your iTaskassignmenthelp.com’s student account, long before the agreed deadline.</b></p>
+    </div>
+    
+  </div>
+</div>
+
+<section class="features text-center" style="padding-bottom: 60px;background-color: #b3e3e7" >
+				<div class="container" style="padding-top: 10px">
+					<h1  class="font"><span style="color: red; font-size: 40px">A</span><span style="color: #2b7bbf;font-size: 30px">cademia</span><span style="color: red ; font-size: 40px">B</span><span style="color: #2b7bbf;font-size: 30px">uddy.com</span> <span class="font" style="font-size: 40px;">Features</span></h1>
+					<h4  class="font"><span class="font" style="font-size: 25px;">Industry leading features in one roof</span></h4>
+					<div class="spacer-30"></div>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="box">
+								<img class="img-responsive" src="http://itaskassignmenthelp.com/assets/img/on-time.jpg"  style="max-height: 100%;border-left: 4px solid #363f45;"">
+								<div>
+									<h3  class="font">On Time Delivery</h3>
+									<p class="font" style="font-size: 16px	">
+										We never compromise when it comes to deadline and delivery of assignment on time. Our writers make sure that all orders are submitted prior to the deadline so that you can proofread your paper before handing it over to your tutor.
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="box">
+								<img class="img-responsive" src="http://itaskassignmenthelp.com/assets/img/24x7.jpg" style="max-height: 100%;border-left: 4px solid #363f45">
+								<div>
+									<h3  class="font">24 X 7 Live Help</h3>
+									<p  class="font" style="font-size: 16px">
+										We work 24x7 for your convenience. Our customer support executives are available round the clock in case you need any professional assistance. Feel free to contact our assignment writing services any time via phone, email or live chat.
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="box">
+								<img class="img-responsive" src="http://itaskassignmenthelp.com/assets/img/expert.jpg" style="max-height: 100%;border-left: 4px solid #363f45">
+								<div>
+									<h3  class="font">3000+ PhD Experts</h3>
+									<p  class="font" style="font-size: 16px">
+										Knowledge, experience and creativity are three features we consider before hiring a writer. All our professional writers have acquired Ph.D. credentials from reputed universities across the world. We have writers for  every subject and always increasing .
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="box">
+								<img class="img-responsive" src="http://itaskassignmenthelp.com/assets/img/all-subjects.jpg" style="max-height: 100%;border-left: 4px solid #363f45;"">
+								<div>
+									<h3  class="font">Services for All Subjects</h3>
+									<p  class="font" style="font-size: 16px">
+										It does not matter whether you are a freshman in college or finishing your final assignment to acquire Ph.D. degree, our writers can provide you professional writing assistance on any subject at any level. Experts for Law, Nursing, Management, Accounting, Marketing etc.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+
+<!-- <div class="content-lg container" id="tour">
+
+<div class="masonry-grid row">
+<div class="masonry-grid-sizer col-xs-6 col-sm-6 col-md-1"></div>
+<div class="masonry-grid-item col-xs-12 col-sm-6 col-md-4 sm-margin-b-30">
+<div class="margin-b-60">
+<h2 class="font">2000+ Customers Love us. You'll too.</h2>
+<p class="font" style="font-size: 20px">We are sure you will too. Experienced, qualified & genius content writers are focused on  goals of customer benefits..</p>
+</div>
+<img class="full-width img-responsive wow fadeInUp" src="{% static 'img/1.jpg' %}" alt="AcademiaBuddy, Managed Content Writing Services" data-wow-duration=".3" data-wow-delay=".3s">
+</div>  
+<div class="masonry-grid-sizer col-xs-6 col-sm-6 col-md-1"></div>
+<div class="masonry-grid-item col-xs-12 col-sm-6 col-md-4 sm-margin-b-30">
+<div class="margin-b-60">
+<h2 class="font" >Managed Content Writing Services</h2>
+<p class="font" style="font-size: 20px">Free of Hustle and Buzzle. Trust us and we would not give you any chance to regret. We do not cost you bomb.</p>
+</div>
+<img class="full-width img-responsive wow fadeInUp" src="{% static 'img/2.jpg' %}" alt="AcademiaBuddy" data-wow-duration=".3" data-wow-delay=".3s">
+</div>  <div class="masonry-grid-sizer col-xs-6 col-sm-6 col-md-1"></div>
+<div class="masonry-grid-item col-xs-12 col-sm-6 col-md-4 sm-margin-b-30">
+<div class="margin-b-60">
+<h2 class="font">We dont charge Gold for services.</h2>
+<p class="font" style="font-size: 20px"> Comitted to provide genuine services. Our price will make you smile. Heavy discount on your first purchase..</p>
+</div>
+<img class="full-width img-responsive wow fadeInUp" src="{% static 'img/3.jpg' %}" alt="AcademiaBuddy" data-wow-duration=".3" data-wow-delay=".3s">
+</div>  
+
+</div></div> -->
+
+<div class="main-gallery">
+
+<div class="gallery-cell">
+<h2 class="container font text-center" style="padding-top: 25px">Testimonials</h2>
+<div class="testimonial">
+
+<img class="testimonial-avatar" src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/128.jpg">
+<q class="testimonial-quote font">"One of the best Content writing providers. I got my article on time and I find AcademiaBuddy as one of my Favourite destination to get all my work done"</q>
+<span class="testimonial-author" style="color: #17bed2">Joe Smith, UK</span>
+</div>
+</div>
+<div class="gallery-cell">
+<div class="testimonial">
+<img class="testimonial-avatar" src="https://s3.amazonaws.com/uifaces/faces/twitter/chexee/128.jpg">
+<q class="testimonial-quote font">"I got my homework done on time and I am really thankful to AcademiaBuddy.com to help me with my projects on time."</q>
+<span class="testimonial-author" style="color: #17bed2">Lisa Jones, USA</span>
+</div>
+</div>
+<div class="gallery-cell">
+<div class="testimonial">
+<img class="testimonial-avatar" src="https://s3.amazonaws.com/uifaces/faces/twitter/andretacuyan/128.jpg">
+<q class="testimonial-quote font">"Prices are very low as compared to other content and assignment writing agencies. My assignment was deliver on time with excellent precision."</q>
+<span class="testimonial-author" style="color: #17bed2">Ryan Waltz, Australia</span>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="lib.js"></script> 
+<script type="text/javascript" src="js/jquery.bxslider.min.js"></script> 
+
+
+{% endblock %}

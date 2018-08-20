@@ -1,0 +1,184 @@
+{% extends "base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}Apply as a Freelancer |{{ block.super }}{% endblock %}
+{% block content %}
+
+<style>
+
+
+input[type=text], select, textarea{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+
+input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+
+
+.col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+}
+
+.col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+    * {
+    box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+/* Style the buttons */
+.btn {
+    border: none;
+    outline: none;
+    padding: 12px 16px;
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #ddd;
+}
+
+.btn.active {
+    background-color: #666;
+    color: white;
+}
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media (max-width: 600px) {
+    .col-25, .col-75, input[type=submit] {
+        width: 100%;
+        margin-top: 0;
+    }
+}
+<style>
+
+}
+</style>
+
+<div class="jumbotron" style="background-image: url({% static 'img/career.jpg' %});height: 500px;width: 100%">
+  <h1 class="font container" style="padding-top: 80px">Create a world that inspires human connection. </h1> 
+  <p class="font container" style="font-size: 40px">We're hiring.<i class="fa fa-check-circle"></i> </p> 
+</div>
+
+<div id="band" class="container text-center">
+  <h3 class="fontblack" style="padding-top: 30px">Career At AcademiaBuddy</h3>
+  <p class="fontblack"><em class="fontblack">We'd love to have you!</em></p>
+  <p class="fontblack">Academia Buddy is a global online service provider specialized in writing and design. We would love to work with you. We have open positions for the following for content writers, assignment writers, SEO optimization and Website content writer. If you fit for any of these please fill the form below and we will get back to you soon.</p>
+  <br>
+  <div class="row"><h1 class="fontblack" style="text-align: center;">OPEN POSITIONS</h1>
+    <div class="col-sm-4">
+
+      <p class="text-center" class="fontblack"><strong>Content Writers</strong></p><br>
+      <a href="#demo" data-toggle="collapse">
+        <img src="{% static 'img/7.jpg' %}" class="img-circle person" alt="Random Name" width="255" height="255">
+      </a>
+     <!--  <div id="demo" class="collapse">
+        <p class="fontblack">Guitarist and Lead Vocalist</p>
+        <p class="fontblack">Loves long walks on the beach</p>
+        <p class="fontblack">Member since 1988</p>
+      </div> -->
+    </div>
+    <div class="col-sm-4">
+      <p class="text-center" class="fontblack"><strong>Assignment Writers</strong></p><br>
+      <a href="#demo2" data-toggle="collapse">
+        <img src="{% static 'img/3.jpg' %}" class="img-circle person" alt="Random Name" width="255" height="255">
+      </a>
+      <!-- <div id="demo2" class="collapse">
+        <p class="fontblack">Drummer</p>
+        <p class="fontblack">Loves drummin'</p>
+        <p class="fontblack">Member since 1988</p>
+      </div> -->
+    </div>
+    <div class="col-sm-4">
+      <p class="text-center" class="fontblack"><strong>SEO Optimization</strong></p><br>
+      <a href="#demo3" data-toggle="collapse">
+        <img src="{% static 'img/4.jpg' %}" class="img-circle person" alt="Random Name" width="255" height="255">
+      </a>
+      <!-- <div id="demo3" class="collapse">
+        <p class="fontblack">Bass player</p>
+        <p class="fontblack">Loves math</p>
+        <p class="fontblack">Member since 2005</p>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+
+
+<div class="container" style="padding-top: 50px">
+<h2 class="fontblack" style="text-align: center;">Apply Now!</h2>
+<form method="POST" novalidate  class=" container font" enctype="multipart/form-data">
+  {% csrf_token %}
+
+  {% for hidden_field in form.hidden_fields %}
+    {{ hidden_field }}
+  {% endfor %}
+
+  {% for field in form.visible_fields %}
+    <div class="form-group font">
+      {{ field.label_tag }}
+      {{ field }}
+      {% if field.help_text %}
+        <small class="form-text text-muted font">{{ field.help_text }}</small>
+      {% endif %}
+    </div>
+    {% for error in field.errors %}
+            <div class="invalid-feedback font">
+              {{ error }}
+            </div>
+          {% endfor %}
+  {% endfor %}
+   <p class="lead font" style="text-align: justify;"> I acknowledge that I am applying for employment by AcademiaBuddy and I hereby consent to the Company collecting, processing and using my personal information for the following purposes: • To contact and communicate with me in connection with my application; • To discuss and evaluate my application; • To conduct any background checks or similar activities; and • To conduct, or to comply with any lawful order or request made in connection with, any investigation or proceeding, or to otherwise deal with any grievance, by, against or otherwise involving me. I also consent to the Company and its affiliated entities: • In conjunction with the above, disclosing or transferring any part or all of my personal information to any of its affiliated entities and/or to any of the Company’s or its affiliated entities’ vendors or service providers, and to transfer or store the same to or in any part of the world; • Retaining any or all of my personal information for such period as it may determine to be appropriate, including for audit or compliance purposes anywhere in the world; •</p> 
+  <button type="submit" class="btn btn-primary font">Submit</button>
+</form>
+
+</div>
+
+<br><br><br><br><br><hr>
+    {% endblock content %}

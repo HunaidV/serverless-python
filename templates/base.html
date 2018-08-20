@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+
+
+<html lang="en">
+<title>{% block title %}AcademiaBuddy{% endblock %}</title>
+    {% include 'snippets/head.html' %}
+ <body id="body" data-spy="scroll" data-target=".header">
+
+    {% include 'snippets/nav.html' %}
+    
+    {% block content %}
+    {% endblock content %}
+      
+     {% include 'snippets/footer.html' %}
+
+  </body>
+</html>

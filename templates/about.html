@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% block title %}Abous US {{ object.Description }}| AcademiaBuddy {% endblock title %}
+{% load static %}
+
+{% block content %}
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "lato", sans-serif}
+body, html {
+    height: 100%;
+    line-height: 1.8;
+}
+/* Full height image header */
+.bgimg-1 {
+    background-position: center;
+    background-size: cover;
+    background-image: url("{% static 'img/thought2.jpg' %}");
+    min-height: 100%;
+}
+.w3-bar .w3-button {
+    padding: 16px;
+}
+</style>
+
+<div class=" w3-container " style="padding-top: 128px">
+  <div class="w3-row-padding">
+    <div class="w3-col m6">
+      <h1 class="font w3-container" style="padding-top: 40px;font-size: 30px">Abous Us, About AcademiaBuddy</h1>
+      <p class="font w3-container" style="font-size: 18px;text-align: justify;">Academia Buddy is a premier global online writing and design company.The company boasts of expert writers and designers who have immense knowledge and skills in various fields.  <b>The company understands that despite presence of several other online writing and design companies, all its existing and new clients are valued</b>.<br> Academia Buddy is delighted to offer professional and a one-on-one online help and assistance to clients seeking various writing and design services. Students, professionals, and researchers from various schools, colleges, and universities across the globe are invited to try our excellent online writing and design services. The company has a team of native writers and designers from the US, UK & Australia that help in preparing and delivering quality work.
+      <br><br> If you are not sure of where to get quality, timely, accurate, and affordable online writing and design services, come to Academia Buddy. If you are sure that Academia Buddy is the best place to get quality, timely, accurate, and affordable online writing and design services, come again.   </p>
+      <p class="font w3-container"><a href="{% url 'samples:list' %}" class="w3-button w3-black"><i class="fa fa-th">&nbsp;</i> View Our Works</a></p>
+    </div>
+    <div class="w3-col m6">
+      <img class="w3-image w3-round-large" src="{% static 'img/8.jpg' %}" alt="AcademiaBuddy About us" width="700" style="height: 500px;padding-top: 30px">
+    </div>
+  </div>
+</div>
+
+<div class="w3-container" style="padding-top: 30px">
+<div class="w3-container w3-row w3-center  w3-padding-64" style="background-color: #58bacf">
+  <div class="w3-quarter">
+    <span class="w3-xxlarge font">14+</span>
+    <br>Writers
+  </div>
+  <div class="w3-quarter">
+    <span class="w3-xxlarge font">3000+</span>
+    <br>Projects Done
+  </div>
+  <div class="w3-quarter">
+    <span class="w3-xxlarge font">1100+</span>
+    <br>Happy Clients
+  </div>
+  <div class="w3-quarter">
+    <span class="w3-xxlarge">600+</span>
+    <br>Meetings
+  </div>
+</div></div>
+<!-- About Section -->
+<div class="container" style="padding-top: 50px;padding-bottom: 50px">
+   <p class="w3-center w3-large">Key features of our services</p>
+<p class=" container font"><i class="fa fa-minus"></i><b>  <span style="color: red; font-size: 19px"> A</span><span style="color: #2b7bbf;font-size: 19px  ">cademia</span><span style="color: red ; font-size: 19px">B</span><span style="color: #2b7bbf;font-size: 19px">uddy,</span> is a global online service provider specialized in writing and design. We offer a range of services from Academic Writing, Content Writing, Assignment Writing, Graphic Design, Architectural Design, Web Design, Web Development, Medical Writing, Technical Writing, Research Project Writing, and Dissertation Writing.   
+Our Specialty </b></p>
+<p class=" container font"><i class="fa fa-minus"></i><b>  We specialize in the production of superb quality content for our clients. We understand that high quality content inspires readers and consumers of digital content. Our professional content writers and designers acknowledge the fact that clients demand high value content which is industry-competitive and relevant. Ranging from academic writing, website content writing, medical content writing, blog content writing, assignment writing to website design and development, we promise that our products and services will be plagiarism free, of world class quality, original, detailed, SEO optimized, professional, and current. We are a trustworthy and reliable partner when it comes to content creation and development thus enabling you move ahead with your pursuits without much hassle. </b></p>
+<p class=" container font"><i class="fa fa-minus"></i><b>  At <span style="color: red; font-size: 19px"> A</span><span style="color: #2b7bbf;font-size: 19px  ">cademia</span><span style="color: red ; font-size: 19px">B</span><span style="color: #2b7bbf;font-size: 19px">uddy,</span>, we value each and every customer. Our service offerings are fully customizable based on client and institutional needs. We don’t have hidden charges neither do we overcharge our clients. Our experts are available throughout the day and year. Occasioned by growing customer bases, our quality services now cover over 100 subjects. Contact us today and join our 2000+ clients in seeking managed content writing and design services. 
+</b></p>
+
+</div>
+<!-- <div class="w3-container w3-padding-32"  id="about">
+  <h3 class="w3-center" style="padding-top: 30px">{{ object.Servicename }}</h3>
+  <p class="w3-center w3-large">Key features of our services</p>
+  <div class="w3-row-padding w3-center" style="margin-top:64px;">
+    {% if object.Point1 == None %}{% else %}<div class="w3-quarter" >
+      <i class="fa fa-star" style="font-size: 60px;color: #17bed2"></i>
+      <p class="w3-large font" style="color: #17bed2;font-size: 60px">{{ object.Point1 }}</p>
+      <p>{{ object.Description1 }}</p>
+    </div>{% endif %}
+    {% if object.Point2 == None %}{% else %}<div class="w3-quarter" >
+      <i class="fa fa-star" style="font-size: 60px;color: #17bed2"></i>
+      <p class="w3-large font" style="color: #17bed2">{{ object.Point2 }}</p>
+      <p>{{ object.Description2 }}</p>
+    </div>{% endif %}
+    {% if object.Point3 == None %}{% else %}<div class="w3-quarter" >
+      <i class="fa fa-star" style="font-size: 60px;color: #17bed2"></i>
+      <p class="w3-large font" style="color: #17bed2">{{ object.Point3 }}</p>
+      <p>{{ object.Description3 }}</p>
+    </div>{% endif %}
+    {% if object.Point4 == None %}{% else %}<div class="w3-quarter">
+      <i class="fa fa-star" style="font-size:60px ;color:#17bed2"></i>
+      <p class="w3-large font" style="color: #17bed2 ">{{ object.Point4 }}</p>
+      <p>{{ object.Description5 }}</p>
+    </div>{% endif %}
+  </div>
+</div>
+<br><br><br><hr> -->
+<!-- Promo Section - "We know design" -->
+
+
+<!-- Team Section -->
+
+<!-- Promo Section "Statistics" -->
+
+
+
+      {% endblock content %}

@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+table, td, th {
+    border: 1px solid black;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    height: 50px;
+}
+</style>
+
+<!-- {% for obj in object_list %}
+<div class="font container text-center" style="padding-top: 150px">
+<table>
+  <tr><li>{{ obj.name }}</li>
+	{% if obj.file %}
+	
+	<li><a href="{{  obj.file.url }}"><h2>file</h2></a></li>{% endif %}
+	<li>{{ obj.email }}</li>
+	<li>{{ obj.Related_to }}</li>
+	<li>{{ obj.timestamp }}ago</li></ul></div>
+	<li>{{ obj.Have_a_Budget }}</li>
+	{% endfor %}</tr></table></div>
+{% for obj in object_list %} -->
+<table>
+  <tr>
+    <th>Name</th>
+     <th>Email</th>
+      <th>Phone number</th>
+       <th>Country</th>
+        <th>Related_to</th>
+         <th>File</th>
+          <th>Academic Level</th>
+           <th>Number of pages</th>
+            <th>Sources</th>
+             <th>Title</th>
+
+    'name',
+			
+			'email',
+			'Phone_Number',		
+			'country', 	
+			'Related_to',
+			'file',
+			
+			'Academic_Level',	
+			'Type_of_Paper', 
+			'Subject',
+			'Number_of_Pages',
+			'Sources',
+			'spacing',
+			'title',
+			'Paper_Details',
+			'Order_Deadline',
+			'Have_a_Budget',
+
+   
+  </tr>
+  <tr>
+    <td>{{ obj.Related_to }}</td>
+    <td>{{ obj.timestamp }}ago</td>
+    <td>{{ obj.Have_a_Budget }}</td>
+  </tr>
+  <tr>
+    <td>Lois</td>
+    <td>Griffin</td>
+    <td>$150</td>
+  </tr>
+  <tr>
+    <td>Joe</td>
+    <td>Swanson</td>
+    <td>$300</td>
+  </tr>
+  <tr>
+    <td>Cleveland</td>
+    <td>Brown</td>
+    <td>$250</td>
+</tr>
+</table>{% endfor %}
+{% endblock content %}

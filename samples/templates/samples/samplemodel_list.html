@@ -1,0 +1,209 @@
+
+
+{% extends "base.html" %}
+{% block title %}AcademiaBuddy | Access to Samples, pdfs, documents and more. Sign in to access the contents and more. {% endblock %}
+{% load static %}
+{% block content %}
+<style>
+  p { white-space:pre-wrap:; }
+</style>
+<style>
+  p { white-space:pre-wrap:; }
+</style>
+<div class="jumbotro font text-center"  style="padding-top: 100px">
+  <h1 class="display-3 font">Our Work, So far!</h1>
+  <p class="lead font">We are committed to dedication and smart work.</p>
+  
+  <p class="font " style="font-size: 22px">Dont forget to checkout below samples!</p>
+  
+</div>
+<div class="w3-main" style="padding-top: 50px">
+
+  <!-- Header -->
+  <header id="portfolio">
+    <a href="#"><img src="https://academiabuddy.s3.amazonaws.com/img/pdf.jpg" style="width:65px;" class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"></a>
+    <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
+    <div class="w3-container">
+    
+    <!-- <div class="w3-section w3-bottombar w3-padding-16">
+      <span class="w3-margin-right">Filter:</span> 
+      <button class="w3-button w3-black">ALL</button>
+      <button class="w3-button w3-white"><i class="fa fa-diamond w3-margin-right"></i>Design</button>
+      <button class="w3-button w3-white w3-hide-small"><i class="fa fa-photo w3-margin-right"></i>Photos</button>
+      <button class="w3-button w3-white w3-hide-small"><i class="fa fa-map-pin w3-margin-right"></i>Art</button>
+    </div> -->
+    </div>
+  </header>
+  
+  <!-- First Photo Grid-->
+  <div class="w3-row-padding">
+  {% for obj in object_list %}
+    <div class="w3-third w3-container w3-margin-bottom">
+    {% if request.user.is_authenticated %}{% if obj.pdf %}
+      <a href='{{ obj.pdf.url }}'><img src="{% static 'img/pdf.jpg' %}" alt="SampleforAcademiaBuddy" style="width:50%" class="w3-hover-opacity"></a>{% endif %}
+      {% else %}
+      <a href="{% url 'accounts:login' %}"><img src="{% static 'img/pdf.jpg' %}" alt="Norway" style="width:50%" class="w3-hover-opacity"></a>{% endif %}
+      <div class="w3-container w3-white">
+        <p class="font"><b>{{ obj.title }}</b></p>
+        <p class="font">{{ obj.content }}.</p>
+      </div>
+    </div>{% endfor %}
+    
+</div><br><br><br><br>
+   
+<!-- <div class="jumbotro font text-center"  style="padding-top: 100px">
+  <h1 class="display-3 font">Our Work, So far!</h1>
+  <p class="lead font">We are committed to dedication and smart work.</p>
+  
+  <p class="font " style="font-size: 22px">Dont forget to checkout below samples!</p>
+  
+</div>
+<div class="w3-main" style="padding-top: 50px">
+
+  Header
+  <header id="portfolio">
+    <a href="#"><img src="{% static 'img/pdf.jpg' %}" style="width:65px;" class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"></a>
+    <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
+    <div class="w3-container">
+    
+    <div class="w3-section w3-bottombar w3-padding-16">
+      <span class="w3-margin-right">Filter:</span> 
+      <button class="w3-button w3-black">ALL</button>
+      <button class="w3-button w3-white"><i class="fa fa-diamond w3-margin-right"></i>Design</button>
+      <button class="w3-button w3-white w3-hide-small"><i class="fa fa-photo w3-margin-right"></i>Photos</button>
+      <button class="w3-button w3-white w3-hide-small"><i class="fa fa-map-pin w3-margin-right"></i>Art</button>
+    </div>
+    </div>
+    <div class="text-center ">
+  <button class="w3-button  w3-round-xxlarge" style="background-color: rgba(182, 234, 15, 0.4);font-size: 30px" onclick="myFunction('Demo1')" class="w3-btn w3-block w3-black w3-left-align">Contents </button>
+<div id="Demo1" class="w3-container w3-hide">
+  <div class="w3-row-padding">
+  {% for obj in object_list %}
+    <div class="w3-third w3-container w3-margin-bottom">
+    {% if request.user.is_authenticated %}{% if obj.pdf %}
+      <a href='{{ obj.pdf.url }}'><img src="{% static 'img/pdf.jpg' %}" alt="Norway" style="width:50%" class="w3-hover-opacity"></a>{% endif %}
+      {% else %}
+      <a href="{% url 'accounts:login' %}"><img src="{% static 'img/pdf.jpg' %}" alt="Norway" style="width:50%" class="w3-hover-opacity"></a>{% endif %}
+      <div class="w3-container w3-white">
+        <p class="font"><b>{{ obj.title }}</b></p>
+        <p class="font">{{ obj.content }}.</p>
+      </div>
+    </div>{% endfor %}
+    
+  </div>
+</div>
+
+
+<button class="w3-button  w3-round-xxlarge" style="background-color: rgba(18, 234, 43, 0.34);font-size: 30px" onclick="myFunction('Demo1')" class="w3-btn w3-block w3-black w3-left-align">Assignments</button>
+<div id="Demo1" class="w3-container w3-hide">
+  <div class="w3-row-padding">
+  {% for obj in object_list %}
+    <div class="w3-third w3-container w3-margin-bottom">
+    {% if request.user.is_authenticated %}{% if obj.pdf %}
+      <a href='{{ obj.pdf.url }}'><img src="{% static 'img/pdf.jpg' %}" alt="Norway" style="width:50%" class="w3-hover-opacity"></a>{% endif %}
+      {% else %}
+      <a href="{% url 'accounts:login' %}"><img src="{% static 'img/pdf.jpg' %}" alt="Norway" style="width:50%" class="w3-hover-opacity"></a>{% endif %}
+      <div class="w3-container w3-white">
+        <p class="font"><b>{{ obj.title }}</b></p>
+        <p class="font">{{ obj.content }}.</p>
+      </div>
+    </div>{% endfor %}
+    
+  </div>
+</div>
+
+
+<button class="w3-button  w3-round-xxlarge" style="background-color: rgba(230, 113, 49, 0.4);font-size: 30px"  onclick="myFunction('Demo1')" class="w3-btn w3-block w3-black w3-left-align">Architecture Designs</button>
+<div id="Demo1" class="w3-container w3-hide">
+  <div class="w3-row-padding">
+  {% for obj in object_list %}
+    <div class="w3-third w3-container w3-margin-bottom">
+    {% if request.user.is_authenticated %}{% if obj.pdf %}
+      <a href='{{ obj.pdf.url }}'><img src="{% static 'img/pdf.jpg' %}" alt="Norway" style="width:50%" class="w3-hover-opacity"></a>{% endif %}
+      {% else %}
+      <a href="{% url 'accounts:login' %}"><img src="{% static 'img/pdf.jpg' %}" alt="Norway" style="width:50%" class="w3-hover-opacity"></a>{% endif %}
+      <div class="w3-container w3-white">
+        <p class="font"><b>{{ obj.title }}</b></p>
+        <p class="font">{{ obj.content }}.</p>
+      </div>
+    </div>{% endfor %}
+    
+  </div>
+</div>
+
+
+<button class="w3-button  w3-round-xxlarge" style="background-color: rgba(49, 214, 230, 0.43);font-size: 30px" onclick="myFunction('Demo1')" class="w3-btn w3-block w3-black w3-left-align">Graphic Designs</button>
+<div id="Demo1" class="w3-container w3-hide">
+  <div class="w3-row-padding">
+  {% for obj in object_list %}
+    <div class="w3-third w3-container w3-margin-bottom">
+    {% if request.user.is_authenticated %}{% if obj.pdf %}
+      <a href='{{ obj.pdf.url }}'><img src="{% static 'img/pdf.jpg' %}" alt="Norway" style="width:50%" class="w3-hover-opacity"></a>{% endif %}
+      {% else %}
+      <a href="{% url 'accounts:login' %}"><img src="{% static 'img/pdf.jpg' %}" alt="Norway" style="width:50%" class="w3-hover-opacity"></a>{% endif %}
+      <div class="w3-container w3-white">
+        <p class="font"><b>{{ obj.title }}</b></p>
+        <p class="font">{{ obj.content }}.</p>
+      </div>
+    </div>{% endfor %}
+    
+  </div>
+</div>
+
+</div></div>
+<script>
+function myFunction(id) {
+    var x = document.getElementById(id);
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else { 
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+</script> -->
+  
+  
+  <!-- Second Photo Grid-->
+  
+  
+  <!--  Images of Me
+  <div class="w3-row-padding w3-padding-16" id="about">
+    <div class="w3-col m6">
+      <img src="{% static 'img/pdf.jpg' %}" alt="Me" style="width:100%">
+    </div>
+    <div class="w3-col m6">
+      <img src="{% static 'img/pdf.jpg' %}" alt="Me" style="width:100%">
+    </div>
+  </div>
+  
+  <div class="w3-container w3-padding-large" style="margin-bottom:32px">
+    
+    
+    <h4> Skills</h4>
+    Progress bars / Skills
+    <p>Content Writing</p>
+    <div class="w3-grey">
+      <div class="w3-container w3-dark-grey w3-padding w3-center" style="width:95%">95%</div>
+    </div>
+    <p>Web Development</p>
+    <div class="w3-grey">
+      <div class="w3-container w3-dark-grey w3-padding w3-center" style="width:85%">85%</div>
+    </div>
+    <p>Interior Designing</p>
+    <div class="w3-grey">
+      <div class="w3-container w3-dark-grey w3-padding w3-center" style="width:80%">80%</div>
+    </div>
+    <p>
+      <button class="w3-button w3-dark-grey w3-padding-large w3-margin-top w3-margin-bottom">
+        <i class="fa fa-download w3-margin-right"></i>Download Resume
+      </button>
+    </p>
+    <hr> -->
+    
+    
+  
+
+  
+
+
+{% endblock content %}

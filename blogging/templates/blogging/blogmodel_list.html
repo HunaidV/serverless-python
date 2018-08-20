@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Blog |{{ block.super }}{% endblock %}
+{% block content %}
+<!-- Header -->
+<style>
+  
+
+
+
+@media screen and (max-width: 699px) and (min-width: 520px) {
+
+    img {
+        height: 250px;
+    }
+}
+</style>
+<header class="w3-container w3-center " style="padding-top: 100px"> 
+  <h1><b> BLOG</b></h1>
+   <h3 class=" container font">Welcome to the blog of <span style="color: red; font-size: 40px">A</span><span style="color: blue;font-size: 22px">cademia</span><span style="color: red ; font-size: 40px">B</span><span style="color: blue;font-size: 22px">uddy</span></h3>
+</header>
+
+<!-- Grid -->
+<div class="w3-row">
+
+<!-- Blog entries -->
+<div class="w3-col l8 s12" font>
+  <!-- Blog entry -->
+  {% for obj in object_list|slice:":10" %}
+  <div class="w3-card-4 w3-margin w3-white">
+  {% if obj.image %}
+    <img src="{{ obj.image.url }}" alt="Nature" style="width:100%;height: 500px">{% endif %}
+    <div class="w3-container">
+      <button class="btn btn-default  " type="button"  style="background-color: #9de4d0;padding-bottom: 10px">{{ obj.Category }}
+    </button>
+      <h4 class="  font" style="padding-top: 15px;padding-left: 8px">{{ obj.title }} <span class="font ">Posted on {{ obj.timestamp|date}} by  <span style="font-size: 25px;color: #55d408">{{ obj.authorname  }}</span></span></h4>
+    </div>
+
+    <div class="w3-container font">
+      <p class="font" style="font-size: 18px;padding-left: 8px">{{ obj.content|slice:":250" }}......</p>
+      <div class="w3-row">
+        <div class="w3-col m8 s12">
+          <p class="font" style="font-size: 14px" ><a href="/blog/{{ obj.slug }}/"><button class="w3-button w3-padding-large w3-white w3-border font"><b>READ MORE &raquo;</b></button></a></p>
+        </div>
+        <!-- <div class="w3-col m4 w3-hide-small">
+          <p><span class="w3-padding-large w3-right font"><b>Comments &nbsp;</b> <span class="w3-tag">0</span></span></p>
+        </div> -->
+      </div>
+    </div>
+  </div>
+  <hr>
+{% endfor %}
+  <!-- Blog entry -->
+  
+</div>
+
+<!-- Introduction menu -->
+<div class="w3-col l4 font">
+  <!-- About Card -->
+  
+  
+  <!-- Posts -->
+  <div class="w3-card w3-margin">
+    <div class="w3-container w3-padding">
+      <h4>Popular  Posts</h4>
+    </div>
+    <ul class="w3-ul w3-hoverable w3-white">
+    {% for obj in object_list|slice:":4" %}
+      <li class="w3-padding-16">
+        {% if obj.image %}<a href="/blog/{{ obj.slug }}/"><img src="{{ obj.image.url }}" alt="Image" class="w3-left w3-margin-right" style="width:50px; height:50px">{% endif %}
+        <span class="w3-large">{{ obj.Category }}</span><br>
+        <span>{{ obj.title }}</span></a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+  <hr> 
+ 
+  <!-- Labels / tags -->
+  <div class="w3-card w3-margin">
+    <div class="w3-container w3-padding">
+      <h4>Tags</h4>
+    </div>
+    <div class="w3-container w3-white">
+    <p>{% for obj in object_list|slice:":4" %}<span class="w3-tag w3-light-grey w3-small w3-margin-bottom">{{ obj.Category }}</span> {% endfor %}
+      
+    </p>
+    </div>
+  </div>
+  
+<!-- END Introduction Menu -->
+</div>
+
+<!-- END GRID -->
+</div><br>
+
+<!-- END w3-content -->
+<br>  <br><br><br><hr>
+
+
+{% endblock %}
